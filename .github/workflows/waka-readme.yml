@@ -10,32 +10,37 @@ jobs:
     name: Update WakaTime Stats
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      
       # Step 1: Last 7 Days
       - name: Weekly Stats
-        uses: athul/waka-readme@master
+        uses: anmol098/waka-readme-stats@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          SHOW_TITLE: false
-          SHOW_PROJECTS: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHOW_PROJECTS: "False"
           SECTION_NAME: waka_7
           TIME_RANGE: last_7_days
+          SHOW_TITLE: "False"
 
       # Step 2: Last 30 Days
       - name: Monthly Stats
-        uses: athul/waka-readme@master
+        uses: anmol098/waka-readme-stats@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          SHOW_TITLE: false
-          SHOW_PROJECTS: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHOW_PROJECTS: "False"
           SECTION_NAME: waka_30
           TIME_RANGE: last_30_days
+          SHOW_TITLE: "False"
 
       # Step 3: All Time
       - name: All Time Stats
-        uses: athul/waka-readme@master
+        uses: anmol098/waka-readme-stats@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          SHOW_TITLE: false
-          SHOW_PROJECTS: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHOW_PROJECTS: "False"
           SECTION_NAME: waka_all
           TIME_RANGE: all_time
+          SHOW_TITLE: "False"
