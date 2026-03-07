@@ -1,26 +1,41 @@
 name: Waka Readme
 
 on:
-  # Runs at 12:00 AM UTC every day
   schedule:
     - cron: "0 0 * * *"
-  # Allows you to run it manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   update-readme:
-    name: WakaTime Readme Tool
+    name: Update WakaTime Stats
     runs-on: ubuntu-latest
     steps:
-      - uses: athul/waka-readme@master
+      # Step 1: Last 7 Days
+      - name: Weekly Stats
+        uses: athul/waka-readme@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          SHOW_TITLE: true
-          # This hides the 'Projects' section while keeping languages and time
+          SHOW_TITLE: false
           SHOW_PROJECTS: false
-          SECTION_NAME: waka
-          BLOCKS: ░▒▓█
+          SECTION_NAME: waka_7
+          TIME_RANGE: last_7_days
+
+      # Step 2: Last 30 Days
+      - name: Monthly Stats
+        uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          SHOW_TITLE: false
+          SHOW_PROJECTS: false
+          SECTION_NAME: waka_30
+          TIME_RANGE: last_30_days
+
+      # Step 3: All Time
+      - name: All Time Stats
+        uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          SHOW_TITLE: false
+          SHOW_PROJECTS: false
+          SECTION_NAME: waka_all
           TIME_RANGE: all_time
-          LANG_COUNT: 10
-          SHOW_TIME: true
-          SHOW_MASKED_TIME: false
