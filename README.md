@@ -1,4 +1,4 @@
-[![DLA's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=darionkarel)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![DLA's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=darionkarel&theme=github-compact)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 <!--START_SECTION:waka-->
 
